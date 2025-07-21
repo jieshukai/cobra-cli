@@ -30,6 +30,7 @@ func main() {
 
 func RootTemplate() []byte {
 	return []byte(`/*
+Package cmd
 {{ .Copyright }}
 {{ if .Legal.Header }}{{ .Legal.Header }}{{ end }}
 */
@@ -61,7 +62,9 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.` + "`" + `,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("{{ .AppName }} called")
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -123,6 +126,7 @@ func initConfig() {
 
 func AddCommandTemplate() []byte {
 	return []byte(`/*
+Package cmd
 {{ .Project.Copyright }}
 {{ if .Legal.Header }}{{ .Legal.Header }}{{ end }}
 */
