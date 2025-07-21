@@ -100,8 +100,11 @@ func initConfig() {
 		// Find home directory.
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
+		pwd, err := os.Getwd()
+		cobra.CheckErr(err)
 
 		// Search config in home directory with name ".{{ .AppName }}" (without extension).
+		viper.AddConfigPath(pwd)
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
 		viper.SetConfigName(".{{ .AppName }}")
