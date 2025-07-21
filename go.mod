@@ -1,4 +1,4 @@
-module github.com/spf13/cobra-cli
+module github.com/jieshukai/cobra-cli
 
 go 1.15
 

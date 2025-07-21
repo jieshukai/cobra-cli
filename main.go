@@ -16,7 +16,7 @@ package main
 import (
 	"os"
 
-	"github.com/spf13/cobra-cli/cmd"
+	"github.com/jieshukai/cobra-cli/cmd"
 )
 
 func main() {
